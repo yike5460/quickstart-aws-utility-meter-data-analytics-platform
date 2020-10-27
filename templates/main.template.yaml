@@ -79,7 +79,6 @@ Resources:
     Properties:
       TemplateURL: !Sub
         - https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/aws-vpc.template.yaml
-        # - https://aws-quickstart-us-east-1-aaron.s3.amazonaws.com/quickstart-aws-utility-meter-data-analytics-platform/templates/aws-vpc.template.yaml
         - S3Bucket: !If
             - UsingDefaultBucket
             - !Sub 'aws-quickstart-${AWS::Region}-aaron'
@@ -102,8 +101,6 @@ Resources:
     Properties:
       TemplateURL: !Sub
         - https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/workload.yml
-        # - https://aws-quickstart-us-east-1-aaron.s3.amazonaws.com/quickstart-aws-utility-meter-data-analytics-platform/templates/workload.yml
-
         - S3Bucket: !If
             - UsingDefaultBucket
             - !Sub 'aws-quickstart-${AWS::Region}-aaron'

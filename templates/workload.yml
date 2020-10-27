@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: "Workload template to deploy Meter data analytics platform in an existing VPC. (qs-1r18anahd)"
 Conditions:
-  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
+  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart-cn-northwest-1-aaron']
 Rules:
   LZS3BucketNameProvided:
     RuleCondition: !Equals [!Ref CreateLandingZoneS3Bucket, 'No']
@@ -19,7 +19,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/redshift.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/redshift.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -43,7 +42,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/copy-scripts.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/copy-scripts.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -61,7 +59,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/glue.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/glue.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -81,8 +78,8 @@ Resources:
           Subnet1ID: !Ref Subnet1ID
           VPCID: !Ref VPCID
           RemoteAccessCIDR: !Ref RemoteAccessCIDR
-          # GlueScriptsS3Bucket: !GetAtt CopyScriptsStack.Outputs.GlueScriptsS3Bucket
-          # GlueTempS3Bucket: !GetAtt CopyScriptsStack.Outputs.GlueTempS3Bucket
+          GlueScriptsS3Bucket: !GetAtt CopyScriptsStack.Outputs.GlueScriptsS3Bucket
+          GlueTempS3Bucket: !GetAtt CopyScriptsStack.Outputs.GlueTempS3Bucket
           VPCRouteTableId: !Ref VPCRouteTableId
           AvailabilityZone: !Ref AvailabilityZone
           LandingzoneTransformer: !Ref LandingzoneTransformer
@@ -96,7 +93,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/glue-tables.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/glue-tables.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -117,7 +113,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/prediction.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/prediction/prediction.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -140,7 +135,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/prediction-api.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/prediction/prediction-api.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -166,7 +160,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/copy-demo-data.yml'
-          # - 'https://aws-quickstart-cn-northwest-1-aaron.s3.cn-northwest-1.amazonaws.com.cn/quickstart-aws-utility-meter-data-analytics-platform/templates/copy-demo-data.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:
@@ -185,7 +178,6 @@ Resources:
       Properties:
         TemplateURL: !Sub
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/sagemaker.yml'
-          # - 'https://aws-quickstart-us-east-1-aaron.s3.${AWS::Region}.${AWS::URLSuffix}/quickstart-aws-utility-meter-data-analytics-platform/templates/prediction/sagemaker.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket:

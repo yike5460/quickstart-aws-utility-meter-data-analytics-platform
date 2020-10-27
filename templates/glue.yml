@@ -719,11 +719,11 @@ Parameters:
 
   GlueScriptsS3Bucket:
     Type: String
-    Default: 'aws-glue-scripts-795474696122-cn-northwest-1'
+    # Default: 'aws-glue-scripts-795474696122-cn-northwest-1'
 
   GlueTempS3Bucket:
     Type: String
-    Default: 'aws-glue-temporary-795474696122-cn-northwest-1'
+    # Default: 'aws-glue-temporary-795474696122-cn-northwest-1'
 
   VPCRouteTableId:
     Type: String

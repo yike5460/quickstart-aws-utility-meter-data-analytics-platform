@@ -76,6 +76,7 @@ def write_job_state_information(readings):
 args = getResolvedOptions(sys.argv, ['JOB_NAME', 'db_name', 'table_name', 'clean_data_bucket', 'temp_workflow_bucket', 'region'])
 
 sc = SparkContext()
+sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "s3."+args['region']+".amazonaws.com.cn")
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 job = Job(glueContext)
