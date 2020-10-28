@@ -9,7 +9,7 @@ BUCKETS=`aws s3 ls`
 for bucket in $BUCKETS
 do
 
-  if  [[ $bucket == smartmeter-workload-1ki3* ]] || [[ $bucket == aws-glue-*-cn-north-1 ]] ;
+  if  [[ $bucket == smartmeterbj-workload-* ]] || [[ $bucket == aws-glue-*-cn-north-1 ]] ;
   then
       echo "Deleting bucket: $bucket"
       {
@@ -22,4 +22,4 @@ do
 done
 
 echo "Deleting stack smartmeter"
-#aws cloudformation delete-stack --stack-name smartmeter 
+aws cloudformation delete-stack --stack-name smartmeterbj
