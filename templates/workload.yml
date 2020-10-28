@@ -21,12 +21,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/redshift.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           MasterUsername: !Ref MasterUsername
           MasterUserPassword: !Ref MasterUserPassword
@@ -44,12 +44,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/copy-scripts.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           QSS3BucketName: !Ref QSS3BucketName
           QSS3KeyPrefix: !Ref QSS3KeyPrefix
@@ -61,12 +61,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/glue.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           MasterUsername: !Ref MasterUsername
           MasterUserPassword: !Ref MasterUserPassword
@@ -95,12 +95,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/glue-tables.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           BusinessZoneS3Bucket: !GetAtt GlueStack.Outputs.BusinessZoneS3Bucket
           LandingZoneS3Bucket: !GetAtt GlueStack.Outputs.LandingZoneS3Bucket
@@ -115,12 +115,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/prediction.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           QSS3BucketName: !Ref QSS3BucketName
           QSS3KeyPrefix: !Ref QSS3KeyPrefix
@@ -137,12 +137,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/prediction-api.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           QSS3BucketName: !Ref QSS3BucketName
           QSS3KeyPrefix: !Ref QSS3KeyPrefix
@@ -162,12 +162,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/copy-demo-data.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           QSS3BucketName: !Ref QSS3BucketName
           QSS3KeyPrefix: !Ref QSS3KeyPrefix
@@ -180,12 +180,12 @@ Resources:
           - 'https://${S3Bucket}.s3.${AWS::Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/prediction/sagemaker.yml'
           - S3Region:
               !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
-            S3Bucket:
-              !If [
-                UsingDefaultBucket,
-                !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
-                !Ref QSS3BucketName,
-              ]
+            S3Bucket: !Ref QSS3BucketName
+              # !If [
+              #   UsingDefaultBucket,
+              #   !Sub '${QSS3BucketName}-${AWS::Region}-aaron',
+              #   !Ref QSS3BucketName,
+              # ]
         Parameters:
           QSS3BucketName: !Ref QSS3BucketName
           QSS3KeyPrefix: !Ref QSS3KeyPrefix
@@ -280,7 +280,7 @@ Parameters:
 
   QSS3BucketName:
     Type: String
-    Default: aws-quickstart
+    Default: aws-quickstart-cn-northwest-1-aaron
     Description: AWS Quick Start S3 bucket name where the Quick Start assets are hosted
   
   QSS3KeyPrefix:
