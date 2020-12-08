@@ -84,14 +84,14 @@ def lambda_handler(event, context):
 
     METER_ID = pathParameter['meter_id']
     ML_ENDPOINT_NAME = load_json_from_file(WORKING_BUCKET, "meteranalytics/initial_pass")["ML_endpoint_name"]
-    DATA_START = queryParameter['data_start']
-    DATA_END = queryParameter['data_end']
+    DATA_START = queryParameter['data_start'].replace("-", "")
+    DATA_END = queryParameter['data_end'].replace("-", "")
 
     connection = connect(s3_staging_dir='s3://{}/'.format(ATHENA_OUTPUT_BUCKET), region_name=REGION)
     query = '''select date_trunc('HOUR', reading_date_time) as datetime, sum(reading_value) as consumption
                 from "{}".daily
-                where meter_id = '{}' and reading_date_time >= timestamp '{}'
-                and  reading_date_time < timestamp '{}'
+                where meter_id = '{}' and date_str >= '{}'
+                and  date_str < '{}'
                 group by 1;
                 '''.format(DB_SCHEMA, METER_ID, DATA_START, DATA_END)
     result = pd.read_sql(query, connection)

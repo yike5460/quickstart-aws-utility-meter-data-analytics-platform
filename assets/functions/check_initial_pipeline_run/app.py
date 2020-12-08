@@ -35,7 +35,7 @@ def lambda_handler(event, context):
     else:
         parameter = {
             "Data_start": "2013-06-01",
-            "Data_end": "2014-01-01",
+            "Data_end": "2013-12-01",
             "Forecast_period": 7,
             "Training_samples": 50,
             "Training_instance_type": "ml.c5.2xlarge",
